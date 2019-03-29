@@ -15,13 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-import addData, getData
-from interFace import views
+from RelaxMind import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^interFace/', include('interFace.urls')),
+    url(r'^RelaxMind/', include('RelaxMind.urls')),
     # url(r'^addData/', addData.add_grade, name='addGrade'),
-    url(r'^addData/', addData.add_student, name='addStudent'),
+    # url(r'^addData/', addData.add_student, name='addStudent'),
 
 ]
