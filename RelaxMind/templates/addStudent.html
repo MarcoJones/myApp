@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <!-- 引入jQuery-->
+    <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- 引入BootStrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript", src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript", src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <title>添加学生信息</title>
+</head>
+<body>
+<div class="container">
+    <form class="form" method="post">
+        <div>
+        <table class="table table-hover table-bordered table-striped" style="background-color: #eae7f7;margin-top: 10%">
+            <tr><td><label class="text-center" style="margin-left:80%">姓名：</label></td><td><input class="text-left" type="text"></td></tr>
+            <tr><td><label class="text-center" style="margin-left:80%">年龄：</label></td><td><input class="text-left" type="number"></td></tr>
+            <tr><td><label class="text-center" style="margin-left:80%">分数：</label></td><td><input class="text-left" type="number"></td></tr>
+            <tr><td><label class="text-center" style="margin-left:80%">年级：</label></td><td><input class="text-left" type="number"></td></tr>
+            <tr><td><label class="text-center" style="margin-left:80%">性别：</label></td>
+                <td><select class="text-left">
+                <option class="text-center" value="0">Male</option>
+                <option class="text-center" value="1">Female</option>
+            </select></td></tr>
+            <tr><td style="height: 50px"><input class="btn-primary" type="button" style="margin-left: 60%;width: 40%;height: 35px" value="提交"></td><td style="height: 50px"><input class="btn-default" style="margin-left: 5%;width:15%;height:35px;" type="button" value="返回"></td></tr>
+        </table>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% load staticfiles %}
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a class="active-menu" href="{% url 'index' %}"><i class="fa fa-dashboard"></i>主面板</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'projects' %}"><i class="fa fa-desktop"></i>项目信息管理</a>
+                    </li>
+					<li>
+                        <a href="{% url 'modules' %}"><i class="fa fa-bar-chart-o"></i>模块数据管理</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'driver' %}"><i class="fa fa-qrcode"></i>驱动数据管理</a>
+                    </li>
+                    
+                    <li>
+                        <a href="{% url 'ui-element' %}"><i class="fa fa-table"></i>UI用例集管理</a>
+                    </li>
+                    <li>
+                        <a href="form.html"><i class="fa fa-edit"></i>接口数据管理</a>
+                    </li>
+                    <li>
+                        <a href="form.html"><i class="fa fa-edit"></i>元素数据管理</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'interface_case' %}"><i class="fa fa-edit"></i>接口用例管理</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i><span>系统设置</span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">用户权限管理</a>
+                            </li>
+                            <li>
+                                <a href="#">用户数据管理</a>
+                            </li>
+                            <li>
+                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Third level link 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third level link 2</a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
