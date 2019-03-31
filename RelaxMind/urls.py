@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'module/$', views.modules, name='modules'),
     url(r'drivers/$', views.driver, name='driver'),
     url(r'ui-element/$', views.ui_element, name='ui-element'),
+    url(r'user/$', views.user_manage, name='user'),
 
 ]

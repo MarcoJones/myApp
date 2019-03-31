@@ -8,7 +8,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            项目列表 <small>For your projects management</small>
+                            用户列表 <small>For  admin user management</small>
                         </h1>
                     </div>
                 </div>
@@ -16,11 +16,11 @@
                     <div class="container-fluid">
                         <form class="navbar-form navbar-right">
                             <div class="form-group">
-                                <input class="form-control" placeholder="请输入项目名称">
+                                <input class="form-control" placeholder="请输入用户名">
                             </div>
                             <button type="submit" class="btn btn-primary">查 询</button>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProject" title="项目添加">
-                                添加项目
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUser" title="新增用户">
+                                添加用户
                             </button>
                         </form>
                     </div>
@@ -29,25 +29,25 @@
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                所有项目
+                                所有用户
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover" id="interface_case_table">
                                         <thead>
                                         <tr>
-                                            <th>项目编号</th>
-                                            <th>项目名称</th>
-                                            <th>项目描述</th>
+                                            <th>用户ID</th>
+                                            <th>用户名</th>
+                                            <th>性 别</th>
+                                            <th>邮件地址</th>
                                             <th>创建时间</th>
-                                            <th>更新时间</th>
                                         </tr>
                                         <tr>
                                             <td>01</td>
-                                            <td>M3.音信无痕</td>
-                                            <td>移动端消息隐写和解密以及屏摄水印功能</td>
-                                            <td>2019-03-28 12:00</td>
-                                            <td>2019-03-29 22:55</td>
+                                            <td>李珊珊</td>
+                                            <td>女</td>
+                                            <td>304100298@qq.com</td>
+                                            <td>2019-03-31 21:54</td>
                                         </tr>
                                         </thead>
                                     </table>
@@ -60,7 +60,7 @@
                 </div>
    <!-- 模态框示例（Modal） -->
     <form method="post" action="" class="form-horizontal" role="form" id="form_data" onsubmit="return check_form()" style="margin: 20px;">
-    <div class="modal fade" id="addProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -68,26 +68,38 @@
                         &times;
                     </button>
                     <h4 class="modal-title" id="myModalLabel">
-                        项目添加
+                        用户新增
                     </h4>
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
-                            <label for="lastname" class="col-sm-3 control-label">项目名称</label>
+                            <label for="user_name" class="col-sm-3 control-label">用户名:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="address" id="project_name"
-                                       placeholder="项目名称">
+                                <input type="text" class="form-control" name="user_name" id="user_name"
+                                       placeholder="请输入您的姓名">
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="project_desc" class="col-sm-3 control-label">项目描述</label>
+                            <label for="user_gender" class="col-sm-3 control-label">性 别:</label>
                             <div class="col-sm-9">
-                                <textarea  class="form-control"  name="project_desc" id="project_desc"
-                                       placeholder="项目描述">
-
-                                </textarea>
+                                <div class="radio-inline">
+                                    <label>男
+                                        <input type="radio" name="user_gender" id="user_gender" value="0" checked="checked">
+                                    </label>
+                                </div>
+                                <div class="radio-inline">
+                                    <label>女
+                                        <input type="radio" name="user_gender" id="user_gender" value="1">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_email" class="col-sm-3 control-label">Email:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="user_email" id="user_email"
+                                       placeholder="请输入您的邮箱">
                             </div>
                         </div>
                     </form>
@@ -100,9 +112,12 @@
                     </button><span id="tip"> </span>
                 </div>
             </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
+        </div>
+        <!-- /.modal -->
             </div>
             <!--end page-inner-->
+        </form>
     </div>
     <!--end page-wrapper-->
+    </div>
 {% include 'footer.html' %}

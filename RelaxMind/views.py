@@ -28,3 +28,6 @@ def driver(request):
 
 def ui_element(request):
     return render(request, 'ui_elements.html')
+
+def user_manage(request):
+    return render(request, 'user.html')
