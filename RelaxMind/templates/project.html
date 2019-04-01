@@ -49,6 +49,7 @@
                                             <td>2019-03-28 12:00</td>
                                             <td>2019-03-29 22:55</td>
                                         </tr>
+
                                         </thead>
                                     </table>
                                 </div>
@@ -58,51 +59,71 @@
                     </div>
 
                 </div>
-   <!-- 模态框示例（Modal） -->
-    <form method="post" action="" class="form-horizontal" role="form" id="form_data" onsubmit="return check_form()" style="margin: 20px;">
-    <div class="modal fade" id="addProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">
-                        项目添加
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label for="lastname" class="col-sm-3 control-label">项目名称</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="address" id="project_name"
-                                       placeholder="项目名称">
+               <!-- 模态框示例（Modal） -->
+                <form method="post" action="{% url 'projects' %}" class="form-horizontal" role="form" id="form_data" style="margin: 20px;">
+                    {% csrf_token %}
+                <div class="modal fade" id="addProject" tabindex="-1" role="dialog" aria-labelledby="addProject" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content" id="Project_content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    项目添加
+                                </h4>
                             </div>
-                        </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="project_name" class="col-sm-3 control-label">项目名称</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="project_name" id="project_name" placeholder="项目名称">
+                                            <label class="error_msg"></label>
+                                        </div>
+                                    </div>
 
-                        <div class="form-group">
-                            <label for="project_desc" class="col-sm-3 control-label">项目描述</label>
-                            <div class="col-sm-9">
-                                <textarea  class="form-control"  name="project_desc" id="project_desc"
-                                       placeholder="项目描述">
-
-                                </textarea>
+                                    <div class="form-group">
+                                        <label for="project_desc" class="col-sm-3 control-label">项目描述</label>
+                                        <div class="col-sm-9">
+                                            <textarea  class="form-control"  name="project_desc" id="project_desc" placeholder="项目描述"></textarea>
+                                            <label class="error_msg"></label>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </div>
-                    </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button id="project_post" type="submit" class="btn btn-primary">提交</button><span id="tip"> </span>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                    </button>
-                    <button type="submit" class="btn btn-primary">
-                        提交
-                    </button><span id="tip"> </span>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
+                </form>
             </div>
             <!--end page-inner-->
     </div>
     <!--end page-wrapper-->
 {% include 'footer.html' %}
+<script>
+    function centerModals(){
+        $('#addProject').each(function(i){
+            var $clone = $(this).clone().css('display', 'block').appendTo('body');
+            var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
+            top = top >0 ? top : 0;
+            $clone.remove();
+            $(this).find('.modal-content').css('margin-top', top)
+        });
+    }
+    $('#addProject').on('show.bs.modal', centerModals);
+    $('#addProject').modal({
+       backdrop: 'static',
+       keyboard: false,
+        show: false
+    });
+    $(window).on('resize', centerModals)
+    $.ajaxSetup({
+        data: {csrfmiddlewaretoken: '{{ csrf_token }}'
+        }
+    });
+</script>
