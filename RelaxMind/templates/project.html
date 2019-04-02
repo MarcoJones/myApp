@@ -15,6 +15,7 @@
                 <nav class="nav navbar-default">
                     <div class="container-fluid">
                         <form class="navbar-form navbar-right">
+                            <span class="info_msg"></span>
                             <div class="form-group">
                                 <input class="form-control" placeholder="请输入项目名称">
                             </div>
@@ -60,8 +61,8 @@
 
                 </div>
                <!-- 模态框示例（Modal） -->
-                <form method="post" action="{% url 'projects' %}" class="form-horizontal" role="form" id="form_data" style="margin: 20px;">
-                    {% csrf_token %}
+                <form method="post" action="{% url 'project_ajax' %}" class="form-horizontal" role="form" id="form_data" style="margin: 20px;">
+{#                    {% csrf_token %}#}
                 <div class="modal fade" id="addProject" tabindex="-1" role="dialog" aria-labelledby="addProject" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content" id="Project_content">
@@ -122,8 +123,8 @@
         show: false
     });
     $(window).on('resize', centerModals)
-    $.ajaxSetup({
-        data: {csrfmiddlewaretoken: '{{ csrf_token }}'
-        }
-    });
+{#    $.ajaxSetup({#}
+{#        data: {csrfmiddlewaretoken: '{{ csrf_token }}'#}
+{#        }#}
+{#    });#}
 </script>

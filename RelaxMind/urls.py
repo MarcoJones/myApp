@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^drivers/$', views.driver, name='driver'),
     url(r'^ui-element/$', views.ui_element, name='ui-element'),
     url(r'^user/$', views.user_manage, name='user'),
-    url(r'^project/add/$', views.project_ajax, name='project_add'),
+    url(r'^project_ajax$', views.project_ajax, name='project_ajax'),
     url(r'^test$', views.test, name='test'),
 
 ]

@@ -42,18 +42,13 @@ def user_manage(request):
 
 
 def project_ajax(request):
-    if request.is_ajax():
-        project_name = request.POST.get('project_name')
-        project_desc = request.POST.get('project_desc')
-        data = {
-            'projectName': project_name,
-            'projectDesc': project_desc
-        }
-        print(data)
-        if project_name is not None:
-            return JsonResponse(data)
-        else:
-            return HttpResponse(u"项目名称不能为空")
+    project_name = request.POST.get('project_name')
+    # project_desc = request.POST.get('project_desc')
+    if project_name is None:
+        return HttpResponse(u"项目名称不能为空！")
+    else:
+        return HttpResponse(project_name+u"项目添加成功！")
+
 
 
 def test(request):
