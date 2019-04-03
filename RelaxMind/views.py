@@ -45,9 +45,9 @@ def project_ajax(request):
     project_name = request.POST.get('project_name')
     # project_desc = request.POST.get('project_desc')
     if project_name is None:
-        return HttpResponse(u"项目名称不能为空！")
+        return HttpResponse(False)
     else:
-        return HttpResponse(project_name+u"项目添加成功！")
+        return HttpResponse(True)
 
 
 

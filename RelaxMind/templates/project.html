@@ -61,8 +61,8 @@
 
                 </div>
                <!-- 模态框示例（Modal） -->
-                <form method="post" action="{% url 'project_ajax' %}" class="form-horizontal" role="form" id="form_data" style="margin: 20px;">
 {#                    {% csrf_token %}#}
+                <form method="post" action="{% url 'project_ajax' %}" class="form-horizontal" role="form" id="form_data" style="margin: 20px;">
                 <div class="modal fade" id="addProject" tabindex="-1" role="dialog" aria-labelledby="addProject" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content" id="Project_content">
@@ -75,12 +75,10 @@
                                 </h4>
                             </div>
                             <div class="modal-body">
-                                <form class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <label for="project_name" class="col-sm-3 control-label">项目名称</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" name="project_name" id="project_name" placeholder="项目名称">
-                                            <label class="error_msg"></label>
                                         </div>
                                     </div>
 
@@ -88,14 +86,13 @@
                                         <label for="project_desc" class="col-sm-3 control-label">项目描述</label>
                                         <div class="col-sm-9">
                                             <textarea  class="form-control"  name="project_desc" id="project_desc" placeholder="项目描述"></textarea>
-                                            <label class="error_msg"></label>
                                         </div>
                                     </div>
-                                </form>
                             </div>
+                            <span id="returnMsg" class="glyphicon"></span>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <button id="project_post" type="submit" class="btn btn-primary">提交</button><span id="tip"> </span>
+                                <button id="project_post" type="submit" class="btn btn-primary">提交</button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal -->
@@ -115,7 +112,7 @@
             $clone.remove();
             $(this).find('.modal-content').css('margin-top', top)
         });
-    }
+    };
     $('#addProject').on('show.bs.modal', centerModals);
     $('#addProject').modal({
        backdrop: 'static',
